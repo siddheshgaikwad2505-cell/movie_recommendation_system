@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Movie Recommendation System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1 class="title">🎬 Movie Recommendation System</h1>
+
+<form method="POST" onsubmit="showLoader()" class="search-box">
+
+<input type="text" name="movie" placeholder="Search a movie..." required>
+
+<button type="submit">Recommend</button>
+
+</form>
+
+<!-- Loader -->
+
+<div id="loader">
+
+<div class="spinner"></div>
+
+<p>Finding best movies for you...</p>
+
+</div>
+
+
+{% if searched_movie %}
+
+    {% if movies %}
+
+        <h2 class="result-title">
+        Showing results for <span>{{ matched_movie }}</span>
+        </h2>
+
+    {% else %}
+
+        <h2 class="result-title">
+        ❌ No matches found for <span>{{ searched_movie }}</span>
+        </h2>
+
+        <p class="no-result">
+        Try searching another movie.
+        </p>
+
+    {% endif %}
+
+{% endif %}
+
+<div class="container">
+
+{% for m in movies %}
+
+<div class="movie-card">
+
+<img src="{{ m.poster }}" onerror="this.src='https://via.placeholder.com/200x300?text=No+Poster'">
+
+<h3>{{ m.title }}</h3>
+
+{% if m.trailer %}
+
+<a href="{{ m.trailer }}" target="_blank">
+<button class="trailer-btn">▶ Watch Trailer</button>
+</a>
+
+{% else %}
+
+<p class="no-preview">Preview not available</p>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<script>
+
+function showLoader(){
+
+document.getElementById("loader").style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>

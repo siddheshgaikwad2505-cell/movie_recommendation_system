@@ -1,0 +1,164 @@
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(to right,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+margin:0;
+padding:0;
+}
+
+/* Title */
+
+.title{
+margin-top:30px;
+font-size:36px;
+}
+
+/* Search section */
+
+.search-box{
+margin:30px;
+}
+
+input{
+padding:12px;
+width:260px;
+border:none;
+border-radius:6px;
+font-size:14px;
+}
+
+button{
+padding:12px 18px;
+background:#ff3d3d;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff1a1a;
+}
+
+/* Result text */
+
+.result-title{
+margin-top:20px;
+font-size:24px;
+}
+
+.result-title span{
+color:#ffd700;
+}
+
+/* Movie container */
+
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+padding:20px;
+}
+
+/* Movie card */
+
+.movie-card{
+background:#1b1b1b;
+border-radius:12px;
+padding:15px;
+margin:15px;
+width:200px;
+height:440px;
+display:flex;
+flex-direction:column;
+align-items:center;
+transition:transform 0.3s, box-shadow 0.3s;
+box-shadow:0px 4px 10px rgba(0,0,0,0.6);
+}
+
+.movie-card:hover{
+transform:scale(1.05);
+box-shadow:0px 8px 18px rgba(0,0,0,0.8);
+}
+
+/* Poster */
+
+img{
+width:100%;
+height:300px;
+border-radius:8px;
+object-fit:cover;
+}
+
+/* Movie title */
+
+.movie-card h3{
+font-size:16px;
+margin:10px 0;
+min-height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+text-overflow:ellipsis;
+display:-webkit-box;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;
+}
+
+/* Trailer button */
+
+.trailer-btn{
+margin-top:auto;
+margin-bottom:10px;
+width:100%;
+padding:10px;
+border-radius:6px;
+}
+
+/* No preview text */
+
+.no-preview{
+color:#aaa;
+font-size:14px;
+margin-top:auto;
+margin-bottom:10px;
+}
+
+/* Loader */
+
+#loader{
+display:none;
+margin-top:20px;
+}
+
+.spinner{
+border:6px solid #f3f3f3;
+border-top:6px solid red;
+border-radius:50%;
+width:40px;
+height:40px;
+animation:spin 1s linear infinite;
+margin:auto;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+#loader p{
+margin-top:10px;
+color:#ddd;
+font-size:16px;
+}
+
+.no-result{
+margin-top:10px;
+color:#ccc;
+font-size:16px;
+}
